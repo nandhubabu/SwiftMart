@@ -1,2 +1,30 @@
+# Dependencies
 /node_modules
-/.env
+
+# Environment variables
+.env
+
+# Logs
+/logs
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build outputs
+/build
+/dist
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# MongoDB specific (optional)
+/data
