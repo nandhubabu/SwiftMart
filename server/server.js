@@ -1,9 +1,8 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 5000;
-
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB connected"))
@@ -30,6 +29,15 @@ app.post('/api/products', async (req, res) => {
         res.status(201).json({ error: error.message });
     }
 });
+
+app.get('/api/products', async (req, res) => {
+    try {
+        const products = await Product.find()
+        res.status(201).json(products);
+    } catch (error) {
+        res.status(500).json({ error: "Failed to get Products" });
+    }
+})
 
 app.get('/', (req, res) => {
     res.send("Hello from home");
